@@ -1,0 +1,9 @@
+FourthAppAutomation\bin\LocalChrome\FourthAppAutomation.dll --result:TestResults/LocalChromeSmokeTestResults.xml;format=nunit2
+FourthAppAutomation\bin\LocalFirefox\FourthAppAutomation.dll --result:TestResults/LocalFirefoxSmokeTestResults.xml;format=nunit2
+FourthAppAutomation\bin\RemoteChrome\FourthAppAutomation.dll --result:TestResults/RemoteChromeSmokeTestResults.xml;format=nunit2
+FourthAppAutomation\bin\RemoteFirefox\FourthAppAutomation.dll --result:TestResults/RemoteFirefoxSmokeTestResults.xml;format=nunit2
+FourthAppAutomation\bin\RemoteSafari\FourthAppAutomation.dll --result:TestResults/RemoteSafariSmokeTestResults.xml;format=nunit2
+FourthAppAutomation\bin\AndroidChrome\FourthAppAutomation.dll --result:TestResults/AndroidChromeSmokeTestResults.xml;format=nunit2
+FourthAppAutomation\bin\iOSSafari\FourthAppAutomation.dll --result:TestResults/iOSSafariSmokeTestResults.xml;format=nunit2 
+-where "cat == smoke and cat == Login"
+--framework:net-4.5

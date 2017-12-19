@@ -1,0 +1,59 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FourthAppAutomation", "FourthAppAutomation\FourthAppAutomation.csproj", "{8771E1FA-C951-46AE-A560-0B10199FB0C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0AFA8C75-4F44-46E1-8E41-BBDF66C69B45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AndroidApp|Any CPU = AndroidApp|Any CPU
+		AndroidChrome|Any CPU = AndroidChrome|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		iOSApp|Any CPU = iOSApp|Any CPU
+		iOSSafari|Any CPU = iOSSafari|Any CPU
+		LocalChrome|Any CPU = LocalChrome|Any CPU
+		LocalFirefox|Any CPU = LocalFirefox|Any CPU
+		LocalInternetExplorer|Any CPU = LocalInternetExplorer|Any CPU
+		LocalSafari|Any CPU = LocalSafari|Any CPU
+		Release|Any CPU = Release|Any CPU
+		RemoteChrome|Any CPU = RemoteChrome|Any CPU
+		RemoteFirefox|Any CPU = RemoteFirefox|Any CPU
+		RemoteSafari|Any CPU = RemoteSafari|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.AndroidApp|Any CPU.ActiveCfg = AndroidApp|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.AndroidApp|Any CPU.Build.0 = AndroidApp|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.AndroidChrome|Any CPU.ActiveCfg = AndroidChrome|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.AndroidChrome|Any CPU.Build.0 = AndroidChrome|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.iOSApp|Any CPU.ActiveCfg = iOSApp|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.iOSApp|Any CPU.Build.0 = iOSApp|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.iOSSafari|Any CPU.ActiveCfg = iOSSafari|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.iOSSafari|Any CPU.Build.0 = iOSSafari|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.LocalChrome|Any CPU.ActiveCfg = LocalChrome|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.LocalChrome|Any CPU.Build.0 = LocalChrome|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.LocalFirefox|Any CPU.ActiveCfg = LocalFirefox|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.LocalFirefox|Any CPU.Build.0 = LocalFirefox|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.LocalInternetExplorer|Any CPU.ActiveCfg = LocalInternetExplorer|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.LocalInternetExplorer|Any CPU.Build.0 = LocalInternetExplorer|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.LocalSafari|Any CPU.ActiveCfg = LocalSafari|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.LocalSafari|Any CPU.Build.0 = LocalSafari|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.RemoteChrome|Any CPU.ActiveCfg = RemoteChrome|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.RemoteChrome|Any CPU.Build.0 = RemoteChrome|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.RemoteFirefox|Any CPU.ActiveCfg = RemoteFirefox|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.RemoteFirefox|Any CPU.Build.0 = RemoteFirefox|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.RemoteSafari|Any CPU.ActiveCfg = RemoteSafari|Any CPU
+		{8771E1FA-C951-46AE-A560-0B10199FB0C6}.RemoteSafari|Any CPU.Build.0 = RemoteSafari|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C159F205-DCBE-4C1B-BA9B-52E2A34579EF}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,133 @@
+#!groovy
+releaseTag = ''
+commonReleaseBuildParams = ''
+solutionPath = ''
+msbuild = ''
+
+//List of configurations that's going to run the app tests in parallel
+appsList = ['AndroidApp', 'iOsApp']
+	
+//List of configurations that's going to run the browser tests in parallel
+browsersList = ['LocalChrome', 'LocalFirefox', 'RemoteChrome','RemoteFirefox', 'RemoteSafari','AndroidChrome', 'iOSSafari']
+
+node('ie1tqabld02') {
+	stage ('Get Source Code') {
+	
+		checkout([
+		$class: 'GitSCM',
+		branches: scm.branches,
+		extensions: scm.extensions + [[$class: 'CleanCheckout']],
+		userRemoteConfigs: scm.userRemoteConfigs
+		])
+		
+		echo "Retrieved $env.BRANCH_NAME in workspace: $env.WORKSPACE"
+	}
+
+	commonReleaseBuildParams = "/p:CI_BuildNum=${env.BUILD_ID};CI_BuildId=${releaseTag}"
+	solutionPath = "$env.WORKSPACE/FourthAppAutomation.sln"
+	msbuild = tool 'v15'
+
+	stage('Initialize') {
+		echo 'Restore nuget packages for solution'
+		bat "\"$env.WORKSPACE/Tools/nuget.exe\" restore \"$solutionPath\""
+		
+		echo 'Build Release Configuration'
+		bat "\"$msbuild\" ./FourthAppAutomation/FourthAppAutomation.csproj /p:OutDir=\"$env.WORKSPACE\" $commonReleaseBuildParams /p:Configuration=Release"
+	}
+
+	if (onReleaseBranch()) {
+	
+		try {
+			stage ('Run App Tests') {
+		
+			//Builds all configurations in order to generate a test dll
+			buildConfigurations(appsList)
+			
+			//Run the tests specified in the text file using nunit
+			runTestsByFile('Apps.txt')
+			}
+		} catch (e) {
+			echo e.message
+			currentBuild.result = "FAILED"
+		}
+		
+		try {
+			stage ('Run Browser Tests') {
+				
+				//Builds all configurations in order to generate a test dll
+				buildConfigurations(browsersList)
+				
+				//Run the tests specified in the text file using nunit
+				runTestsByFile('Browsers.txt')
+			}
+		} catch (e) {
+			echo e.message
+			currentBuild.result = "FAILED"
+		}
+	}
+	else {
+		try {
+			stage ('Run App Smoke Tests') {
+			//Builds all configurations in order to generate a test dll
+			buildConfigurations(appsList)
+			
+			//Run the tests specified in the text file using nunit
+			runTestsByFile('SmokeTests_Apps.txt')
+			}
+		} catch (e) {
+			echo e.message
+			currentBuild.result = "FAILED"
+		}
+		
+		try {
+			stage ('Run Browser Smoke Tests') {
+			
+			//Builds all configurations in order to generate a test dll
+			buildConfigurations(browsersList)
+			
+			//Run the tests specified in the text file using nunit
+			runTestsByFile('SmokeTests_Browsers.txt')
+			}
+		} catch (e) {
+			echo e.message
+			currentBuild.result = "FAILED"
+		}
+	}
+	
+
+	try {
+		stage('Test Results Archive') {
+			archiveArtifacts artifacts: 'TestResults/*.xml'
+			nunit testResultsPattern: 'TestResults/*.xml'
+			cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: 'FourthAppAutomation/bin'
+		}
+	} catch (e) {
+		echo e
+		currentBuild.result = "FAILED"
+	}
+}
+
+def onReleaseBranch() {
+	return env.BRANCH_NAME == 'master'
+}
+
+def buildAndRunTests(configurationName) {
+	bat "\"$msbuild\" \"${solutionPath}\" /t:Rebuild $commonReleaseBuildParams /p:Configuration=\"${configurationName}\""
+						 
+	def dllPath = "FourthAppAutomation/bin/${configurationName}/FourthAppAutomation.dll"
+	def resultsPath = "TestResults/${configurationName}TestResults.xml"
+
+	bat "nunit ${dllPath} --result:${resultsPath};format=nunit2 -where cat=Login"
+}
+
+def buildConfigurations(list){
+	for (int i = 0; i < list.size(); ++i) {
+		echo "Building ${list[i]}"
+		bat "\"$msbuild\" \"${solutionPath}\" /t:Rebuild $commonReleaseBuildParams /p:Configuration=\"${list[i]}\""
+	}
+}
+
+def runTestsByFile(fileName)
+{
+	bat "nunit @${fileName}"
+}

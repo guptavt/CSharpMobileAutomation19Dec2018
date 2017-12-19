@@ -1,0 +1,9 @@
+FourthAppAutomation\bin\LocalChrome\FourthAppAutomation.dll --result:TestResults/LocalChromeTestResults.xml;format=nunit2
+FourthAppAutomation\bin\LocalFirefox\FourthAppAutomation.dll --result:TestResults/LocalFirefoxTestResults.xml;format=nunit2
+FourthAppAutomation\bin\RemoteChrome\FourthAppAutomation.dll --result:TestResults/RemoteChromeTestResults.xml;format=nunit2
+FourthAppAutomation\bin\RemoteFirefox\FourthAppAutomation.dll --result:TestResults/RemoteFirefoxTestResults.xml;format=nunit2
+FourthAppAutomation\bin\RemoteSafari\FourthAppAutomation.dll --result:TestResults/RemoteSafariestResults.xml;format=nunit2
+FourthAppAutomation\bin\AndroidChrome\FourthAppAutomation.dll --result:TestResults/AndroidChromeTestResults.xml;format=nunit2
+FourthAppAutomation\bin\iOSSafari\FourthAppAutomation.dll --result:TestResults/iOSSafariTestResults.xml;format=nunit2 
+-where cat=Login
+--framework:net-4.5

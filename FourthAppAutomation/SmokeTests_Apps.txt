@@ -1,0 +1,4 @@
+FourthAppAutomation\bin\AndroidApp\FourthAppAutomation.dll --result:TestResults/AndroidAppSmokeTestResults.xml;format=nunit2
+FourthAppAutomation\bin\iOSApp\FourthAppAutomation.dll --result:TestResults/iOSAppSmokeTestResults.xml;format=nunit2 
+-where "cat == smoke and cat == Login"
+--framework:net-4.5
